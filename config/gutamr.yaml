@@ -1,0 +1,30 @@
+######################
+# General settings
+######################
+
+working_dir: 
+database_dir: 
+
+######################
+# Alignment settings
+######################
+
+CARD_version: 3.3.0
+
+run_assemblies: no
+assemblies_folder: 
+assembly_suffix: "fna"
+
+run_reads: yes
+read_folder: 
+read_suffix:
+- 1.fq.gz
+- 2.fq.gz
+
+######################
+# Analysis settings
+######################
+
+min_template_coverage: 60
+max_template_identity_difference: 5
+min_fragment_no: 10
