@@ -189,8 +189,11 @@ rule run_kma_fastq:
             else
                 input_files="{input.fwd} {params.rev}"
             fi
+            
+            mkdir temp
+            export TMPDIR="$PWD/temp"
             kma_db_prefix=$(dirname {input.index_file})
-            kma -t_db $kma_db_prefix/nucleotide_fasta_protein_homolog_model.fasta -t {threads} -1t1 -ID 50.0 -mrs 0.85 -ml 75 -cge -na -nc -nf -ef -o {wildcards.sample} -ipe $input_files
+            kma -t_db $kma_db_prefix/nucleotide_fasta_protein_homolog_model.fasta -t {threads} -tmp $TMPDIR/ -1t1 -ID 50.0 -mrs 0.85 -ml 75 -cge -na -nc -nf -ef -o {wildcards.sample} -ipe $input_files
             rsync -a {wildcards.sample}.res {output.res}
             rsync -a {wildcards.sample}.mapstat {output.mst}
         ) >& {log}

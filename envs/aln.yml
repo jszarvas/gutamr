@@ -2,9 +2,8 @@ name: aln
 channels:
   - conda-forge
   - bioconda
-  - defaults
 dependencies:
-  - kma=1.4.14
+  - kma=1.6.8
   - r-base=4.3.1
   - r-dplyr=1.1.4
   - r-optparse=1.7.3
